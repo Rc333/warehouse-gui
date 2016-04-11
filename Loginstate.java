@@ -1,4 +1,4 @@
-package src;// for git
+package src;
 
 
 
@@ -62,39 +62,68 @@ public class Loginstate extends WarehouseState{
   }
 
   private void clerk(){
-	  String clerkname = getToken("Please input the clerk name: ");
-	  String clerkID = getToken("Please input the clerk id: ");
-	  if( clerkname.equals("CLERK") && clerkID.equals("CLERK"))
-	  {
+	  
+	  Securitystate securitystate;
+	  securitystate = new Securitystate();
+	int clear;
+	if(securitystate.clerkSecurity(true));
+	{ 
+		//  Loginstate clerk;
+		//if (Securitystate.clerkSecurity(clerk))
+     
+	 // String clerkname = getToken("Please input the clerk name: ");
+	  //String clerkID = getToken("Please input the clerk id: ");
+	 // if( clerkname.equals("CLERK") && clerkID.equals("CLERK"))
+	  //{
     (WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
     (WarehouseContext.instance()).changeState(0);
 	  } 
-	  else 
+	   
 		  System.out.println("invalid id/uname(type both as CLERK)");
 		  }
-  private void manager(){
-	  String managername = getToken("Please input the manager name: ");
-	  String managerID = getToken("Please input the manager id: ");
-	  if( managername.equals("MANAGER") && managerID.equals("MANAGER"))
-	  {
+ 
+
+
+private void manager(){
+	
+	Securitystate securitystate;
+	  securitystate = new Securitystate();
+	int clear;
+	if(securitystate.managerSecurity(true));
+	{ 
+		
+		
+	
+	//  String managername = getToken("Please input the manager name: ");
+	  //String managerID = getToken("Please input the manager id: ");
+	  //if( managername.equals("MANAGER") && managerID.equals("MANAGER"))
+	  //{
 		  
 	   (WarehouseContext.instance()).setLogin(WarehouseContext.IsManager);
 	    (WarehouseContext.instance()).changeState(1);
 	  }
-	  else 
+	  
 		  System.out.println("invalid id/uname(type both as MANAGER)");
   }
 	  
 	  
 
   private void client(){
-    String clientID = getToken("Please input the client id: ");
-    if (ClientList.instance().checkClient(clientID) != null){
-      (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
-      (WarehouseContext.instance()).setUser(clientID);      
+	  Securitystate securitystate;
+	  securitystate = new Securitystate();
+	int clear;
+	if(securitystate.clerkSecurity(true));
+	{ 
+		
+		
+	  
+  //  String clientID = getToken("Please input the client id: ");
+    //if (ClientList.instance().checkClient(clientID) != null){
+     // (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
+    //  (WarehouseContext.instance()).setUser(clientID);      
       (WarehouseContext.instance()).changeState(2);
     }
-    else 
+     
       System.out.println("Invalid client id.");
   } 
 
