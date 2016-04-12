@@ -1,11 +1,13 @@
-package src;
 
 import java.util.*;
 import java.text.*;
 import java.io.*;
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
 public class Managerstate extends WarehouseState {
   private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
   private static Warehouse Warehouse;
+//  protected Boolean IsManager = TRUE; //added logic
   private WarehouseContext context;
   private static Managerstate instance;
   private static final int EXIT = 0;
@@ -17,6 +19,7 @@ public class Managerstate extends WarehouseState {
   
   private static final int CLERKMENU = 11;
   private static final int HELP = 13;
+  protected boolean CHECKMANAGER = FALSE;
   private Managerstate() {
       super();
       Warehouse = Warehouse.instance();
@@ -152,7 +155,8 @@ public class Managerstate extends WarehouseState {
 	  System.out.println(" you are transferred into clerk menu:");
    /* String clientID = getToken("you ");
     if (ClientList.instance().checkClient(clientID) != null){
-      (WarehouseContext.instance()).setUser(clientID);*/      
+      (WarehouseContext.instance()).setUser(clientID);*/ 
+      CHECKMANAGER = TRUE;
       (WarehouseContext.instance()).changeState(0);
     }
  //   else 
@@ -161,6 +165,7 @@ public class Managerstate extends WarehouseState {
 
   public void logout()
   {
+      CHECKMANAGER = FALSE;
     (WarehouseContext.instance()).changeState(3); // exit with a code 0
   }
  
