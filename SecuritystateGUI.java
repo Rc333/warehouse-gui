@@ -120,35 +120,27 @@ public class SecuritystateGUI extends JFrame {
 		btnLogin.setBackground(new Color(204, 51, 204));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				
 				//setVisible(false);
 				ClerkstateGUI cs = new ClerkstateGUI();
 				String iput = textArea.getText();
 				String iput1 = passwordField.getText();	
 				//System.out.println(iput + iput1);
 				if (iput.equals("CLERK") && iput1.equals("CLERK")) {
-	                   cs.setVisible(true);
+					dispose();   
+					cs.setVisible(true);
 				
-				//clerk
-			//	 public static boolean clerkSecurity(boolean b) {
-			//	public static  boolean clerkSecurity(boolean b){
-					//   Securitystate sc = new Securitystate();
-				/*	  String clerkname = getToken("Please input the clerk name: ");
-					  String clerkID = getToken("Please input the clerk id: ");
-				if (clerkname.equals("CLERK") && clerkID.equals("CLERK")) {
-                   cs.setVisible(true);
-		           // return (true);
-			    //(WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
-		            //(WarehouseContext.instance()).changeState(0);
-		            //} 
-		        } else {
-		            System.out.println("invalid id/uname(type both as CLERK)");
-		            
-		        }*/
 
-		        //return (false);
-					//return null;
-				 }		//return null != null;
+				 }	
+				
+				else {
+					JLabel lblNewLabel = new JLabel("Invalid User Name Password");
+					lblNewLabel.setBounds(10, 217, 140, 14);
+					contentPane.add(lblNewLabel);
+					lblNewLabel.setText("Invalid user/pass");
+					
+					
+				}//return null != null;
 					
 						  
 				  
@@ -200,9 +192,7 @@ public class SecuritystateGUI extends JFrame {
 		btnClear.setBounds(7, 165, 89, 23);
 		contentPane.add(btnClear);
 		
-		JLabel lblNewLabel = new JLabel("wrong password label");
-		lblNewLabel.setBounds(10, 217, 140, 14);
-		contentPane.add(lblNewLabel);
+		
 	}
 		public boolean clerkSecurityb(boolean b) {
 			// TODO Auto-generated method stub
