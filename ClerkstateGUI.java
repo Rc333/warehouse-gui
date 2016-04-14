@@ -52,13 +52,18 @@ public class ClerkstateGUI extends JFrame {
 		JButton btnAddClients = new JButton("Add Clients");
 		btnAddClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AddclerkGUI ac = new AddclerkGUI();
+				ac.setVisible(true);
+				
+				
 			}
 		});
-		btnAddClients.setBounds(10, 53, 89, 23);
+		btnAddClients.setBounds(10, 53, 108, 23);
 		contentPane.add(btnAddClients);
 		
 		JButton btnAddProducts = new JButton("Add products");
-		btnAddProducts.setBounds(10, 87, 89, 23);
+		btnAddProducts.setBounds(10, 87, 108, 23);
 		contentPane.add(btnAddProducts);
 	}
 }

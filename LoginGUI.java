@@ -53,9 +53,11 @@ public class LoginGUI extends JFrame {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
-				//close();
-				LoginGUI ls = new LoginGUI();
-				ls.setVisible(false);
+				dispose();
+				//setVisible(false);
+				//LoginGUI ls = new LoginGUI();
+				//ls.setVisible(false);
+			
 				SecuritystateGUI ss = new SecuritystateGUI();
 				ss.setVisible(true);
 				

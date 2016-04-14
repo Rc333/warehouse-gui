@@ -22,6 +22,7 @@ import java.awt.event.ContainerAdapter;
 import java.awt.event.ContainerEvent;
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
+import javax.swing.JLabel;
 
 public class SecuritystateGUI extends JFrame {
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
@@ -119,6 +120,8 @@ public class SecuritystateGUI extends JFrame {
 		btnLogin.setBackground(new Color(204, 51, 204));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				//setVisible(false);
 				ClerkstateGUI cs = new ClerkstateGUI();
 				String iput = textArea.getText();
 				String iput1 = passwordField.getText();	
@@ -196,6 +199,10 @@ public class SecuritystateGUI extends JFrame {
 		btnClear.setBackground(new Color(204, 51, 204));
 		btnClear.setBounds(7, 165, 89, 23);
 		contentPane.add(btnClear);
+		
+		JLabel lblNewLabel = new JLabel("wrong password label");
+		lblNewLabel.setBounds(10, 217, 140, 14);
+		contentPane.add(lblNewLabel);
 	}
 		public boolean clerkSecurityb(boolean b) {
 			// TODO Auto-generated method stub
@@ -233,6 +240,5 @@ public class SecuritystateGUI extends JFrame {
 
 		        return (false);
 		}
-		
 }
 	
