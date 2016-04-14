@@ -2,6 +2,7 @@ package src;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.TextArea;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +20,8 @@ import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.event.ContainerAdapter;
 import java.awt.event.ContainerEvent;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
 
 public class SecuritystateGUI extends JFrame {
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
@@ -71,6 +74,7 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.add(txtUserId);
 		txtUserId.setColumns(10);
 		
+		
 		txtPassword = new JTextField();
 		txtPassword.setBackground(new Color(204, 153, 204));
 		txtPassword.setText("Password");
@@ -80,9 +84,10 @@ public class SecuritystateGUI extends JFrame {
 		
 		passwordField = new JPasswordField();
 		passwordField.addContainerListener(new ContainerAdapter() {
-			 String clerkID = getToken("Please input the clerk id: ");
+			// String clerkID = getToken("Please input the clerk id: ");
 			//@Override
 			public void componentAdded(ContainerEvent e) {
+				String iput1 = passwordField.getText();	
 			}
 		});
 		passwordField.setBackground(new Color(255, 255, 204));
@@ -90,10 +95,20 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.add(passwordField);
 		
 		JTextArea textArea = new JTextArea();
+		textArea.addInputMethodListener(new InputMethodListener() {
+			public void caretPositionChanged(InputMethodEvent arg0) {
+			}
+			public void inputMethodTextChanged(InputMethodEvent arg0) {
+			}
+		});
 		textArea.addContainerListener(new ContainerAdapter() {
 			//@Override
-			 String clerkname = getToken("Please input the clerk name: ");
+			
 			public void componentAdded(ContainerEvent arg0) {
+				
+			//	 String clerkname = getToken("Please input the clerk name: ");
+		String iput = textArea.getText();	
+		//System.out.println(iput);
 			}
 		});
 		textArea.setBackground(new Color(255, 255, 204));
@@ -104,24 +119,31 @@ public class SecuritystateGUI extends JFrame {
 		btnLogin.setBackground(new Color(204, 51, 204));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				ClerkstateGUI cs = new ClerkstateGUI();
+				String iput = textArea.getText();
+				String iput1 = passwordField.getText();	
+				//System.out.println(iput + iput1);
+				if (iput.equals("CLERK") && iput1.equals("CLERK")) {
+	                   cs.setVisible(true);
 				
 				//clerk
 			//	 public static boolean clerkSecurity(boolean b) {
 			//	public static  boolean clerkSecurity(boolean b){
 					//   Securitystate sc = new Securitystate();
-					  String clerkname = getToken("Please input the clerk name: ");
+				/*	  String clerkname = getToken("Please input the clerk name: ");
 					  String clerkID = getToken("Please input the clerk id: ");
 				if (clerkname.equals("CLERK") && clerkID.equals("CLERK")) {
-
-		            return (true);
+                   cs.setVisible(true);
+		           // return (true);
 			    //(WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
 		            //(WarehouseContext.instance()).changeState(0);
 		            //} 
 		        } else {
 		            System.out.println("invalid id/uname(type both as CLERK)");
-		        }
+		            
+		        }*/
 
-		        return (false);
+		        //return (false);
 					//return null;
 				 }		//return null != null;
 					
@@ -166,7 +188,7 @@ public class SecuritystateGUI extends JFrame {
 				}*/
 
 				
-			});
+			}});
 		btnLogin.setBounds(123, 165, 89, 23);
 		contentPane.add(btnLogin);
 		

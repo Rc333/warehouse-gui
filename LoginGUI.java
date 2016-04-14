@@ -53,9 +53,13 @@ public class LoginGUI extends JFrame {
 			
 			
 			public void actionPerformed(ActionEvent arg0) {
-				close();
-				SecuritystateGUI sc = new SecuritystateGUI();
-				sc.setVisible(true);
+				//close();
+				LoginGUI ls = new LoginGUI();
+				ls.setVisible(false);
+				SecuritystateGUI ss = new SecuritystateGUI();
+				ss.setVisible(true);
+				
+			  
 			/*	SecuritystateGUI securitystategui;
 				  securitystategui = new SecuritystateGUI();
 				int clear;
@@ -71,10 +75,10 @@ public class LoginGUI extends JFrame {
 				  //{
 			    (WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
 			    (WarehouseContext.instance()).changeState(0);*/
-			    sc.setVisible(true);
+			    
 				//  } 
-				if(false) 
-					  System.out.println("invalid id/uname(type both as CLERK)");
+				//if(false) 
+					//  System.out.println("invalid id/uname(type both as CLERK)");
 				      
 			}
 		});

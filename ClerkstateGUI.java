@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ClerkstateGUI extends JFrame {
 
@@ -48,6 +50,10 @@ public class ClerkstateGUI extends JFrame {
 		txtClerkMenu.setColumns(10);
 		
 		JButton btnAddClients = new JButton("Add Clients");
+		btnAddClients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAddClients.setBounds(10, 53, 89, 23);
 		contentPane.add(btnAddClients);
 		
