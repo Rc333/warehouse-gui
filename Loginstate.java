@@ -1,12 +1,16 @@
 package src;
+import javax.swing.*;
 
 import java.util.*;
 import java.text.*;
 import java.io.*;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Loginstate extends WarehouseState {
+public class Loginstate extends WarehouseState implements ActionListener {
 
     private static final int CLERK_LOGIN = 0;
     private static final int MANAGER_LOGIN = 1;
@@ -14,11 +18,27 @@ public class Loginstate extends WarehouseState {
     private static final int EXIT = 3;
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     private WarehouseContext context;
+    private JFrame frame;
     private static Loginstate instance;
+    private AbstractButton clientButton, clerkButton, managerButton, logoutButton;
 
     private Loginstate() {
         super();
         // context = LibContext.instance();
+        clientButton = new JButton("client");
+        clientButton.addActionListener(this);
+        
+        
+        logoutButton = new JButton("logout");
+        logoutButton.addActionListener(this);
+        
+        clerkButton = ClerkButton.instance();
+        ClerkButton.instance().setListener();
+       
+        
+      
+        managerButton = ManagerButton.instance();
+        ManagerButton.instance().setListener();  
     }
 
     public static Loginstate instance() {
@@ -27,6 +47,20 @@ public class Loginstate extends WarehouseState {
         }
         return instance;
     }
+    
+    public void actionPerformed(ActionEvent event) {
+        if (event.getSource().equals(this.clientButton)) 
+           {//System.out.println("user \n"); 
+             this.client();}
+        else if (event.getSource().equals(this.logoutButton)) 
+           (WarehouseContext.instance()).changeState(3);
+      } 
+    
+    public void clear() { //clean up stuff
+        frame.getContentPane().removeAll();
+        frame.paint(frame.getGraphics());   
+      }  
+
 
     public int getCommand() {
         do {
@@ -111,7 +145,7 @@ public class Loginstate extends WarehouseState {
     }
 
     private void client() {
-        Securitystate securitystate;
+       /* Securitystate securitystate;
         securitystate = new Securitystate();
         int clear;
         String clientID = null;
@@ -128,7 +162,18 @@ public class Loginstate extends WarehouseState {
             (WarehouseContext.instance()).changeState(2);
         } else {
             System.out.println("Invalid client id./n");
-        }
+        }*/
+    	String clientID = JOptionPane.showInputDialog(frame,"Please input the user id: ");
+   if( Warehouse.instance().testClient(clientID) != null){
+ (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
+ (WarehouseContext.instance()).setUser(clientID);  
+  clear();
+ (WarehouseContext.instance()).changeState(2);
+}
+else 
+ JOptionPane.showMessageDialog(frame,"Invalid user id.");
+    	
+    	
     }
 
     public void process() {
@@ -162,6 +207,14 @@ public class Loginstate extends WarehouseState {
     }
 
     public void run() {
-        process();
+        frame = WarehouseContext.instance().getFrame();
+        frame.getContentPane().removeAll();
+        frame.getContentPane().setLayout(new FlowLayout());
+        frame.getContentPane().add(this.clientButton);
+        frame.getContentPane().add(this.clerkButton);
+        frame.getContentPane().add(this.managerButton);
+        frame.getContentPane().add(this.logoutButton);
+        frame.setVisible(true);
+        frame.paint(frame.getGraphics()); 
     }
 }

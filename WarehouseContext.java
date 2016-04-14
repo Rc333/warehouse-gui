@@ -1,5 +1,5 @@
 package src;
-
+import javax.swing.*;
 
 import java.util.*;
 import java.text.*;
@@ -8,17 +8,18 @@ import static java.lang.Boolean.TRUE;
 
 public class WarehouseContext {
 
-    private int currentState;
+    private static int currentState;
     private static Warehouse warehouse;
     private static WarehouseContext context;
     private int currentUser;
-    private String userID;
+    private String clientID;
     private BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     public static final int IsClerk = 0;
     public static final int IsManager = 1;
     public static final int IsClient = 2;
-    private WarehouseState[] states;
+    private static WarehouseState[] states;
     private int[][] nextState;
+    private static JFrame WarehouseFrame; 
 
     public String getToken(String prompt) {
         do {
@@ -62,17 +63,20 @@ public class WarehouseContext {
         currentUser = code;
     }
 
-    public void setUser(String uID) {
-        userID = uID;
+    public void setUser(String cID) {
+        clientID = cID;
     }
 
     public int getLogin() {
         return currentUser;
     }
 
-    public String getUser() {
-        return userID;
+    public String getClient() {
+        return clientID;
     }
+    
+    public JFrame getFrame()
+    { return WarehouseFrame;}
 
     private WarehouseContext() { //constructor
         //System.out.println("In WarehouseContext constructor");
@@ -106,6 +110,9 @@ public class WarehouseContext {
         nextState[3][3] = 3;
 
         currentState = 3;
+        WarehouseFrame = new JFrame("GUI");
+        WarehouseFrame.setSize(400,400);
+        WarehouseFrame.setLocation(400,400);
     }
 
     public void changeState(int transition) {
@@ -169,6 +176,7 @@ public class WarehouseContext {
 
     public static void main(String[] args) {
         WarehouseContext.instance().process();
+        states[currentState].run();
     }
 
 }
