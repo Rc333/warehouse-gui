@@ -8,12 +8,16 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Font;
 
 public class ClientstateGUI extends JFrame {
+	  private static Warehouse warehouse;
 
 	private JPanel contentPane;
 
@@ -45,6 +49,30 @@ public class ClientstateGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Show products");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				
+//				
+//				 Iterator allProducts = warehouse.getProducts();
+//			        while (allProducts.hasNext()) {
+//			            Product product = (Product) (allProducts.next());
+//			            System.out.println(product.toString());
+//			        }
+			 Iterator allProducts = warehouse.getProducts();
+			        while (allProducts.hasNext()) {
+			            Product product = (Product) (allProducts.next());
+			           
+			        			            JOptionPane.showMessageDialog(null, product.toString());
+////			            String text = product.getText();
+//			            product.append(text + newline);
+//			            product.selectAll();
+			     
+			            // System.out.println(product.toString());
+				
+			}
+			}
+			}	);
 		btnNewButton.setBounds(10, 65, 150, 23);
 		contentPane.add(btnNewButton);
 		
