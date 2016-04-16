@@ -49,7 +49,9 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnAddManufacturer = new JButton("Add manufacturer");
 		btnAddManufacturer.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
+				AddmanufacturerGUI am = new AddmanufacturerGUI();
+				am.setVisible(true);
 				
 			}
 		});
@@ -57,18 +59,51 @@ public class ManagerstateGUI extends JFrame {
 		contentPane.add(btnAddManufacturer);
 		
 		JButton btnShowClients = new JButton("Show clients");
+		btnShowClients.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+				ShowclientsGUI sc = new ShowclientsGUI();
+				sc.setVisible(true);
+				
+			}
+		});
 		btnShowClients.setBounds(10, 104, 130, 23);
 		contentPane.add(btnShowClients);
 		
 		JButton btnShowProducts = new JButton("Show products");
+		btnShowProducts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				ShowproductsGUI sp = new ShowproductsGUI();
+				sp.setVisible(true);
+				
+			}
+		});
 		btnShowProducts.setBounds(10, 145, 130, 23);
 		contentPane.add(btnShowProducts);
 		
 		JButton btnShowInvoices = new JButton("Show invoices");
+		btnShowInvoices.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ShowinvoicesGUI si = new ShowinvoicesGUI();
+				si.setVisible(true);
+		
+				
+			}
+		});
 		btnShowInvoices.setBounds(10, 194, 130, 23);
 		contentPane.add(btnShowInvoices);
 		
 		JButton btnShowWaitlist = new JButton("Show waitlist");
+		btnShowWaitlist.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ShowwaitlistGUI sw = new ShowwaitlistGUI();
+				sw.setVisible(true);
+				
+				
+			}
+		});
 		btnShowWaitlist.setBounds(10, 228, 130, 23);
 		contentPane.add(btnShowWaitlist);
 		
