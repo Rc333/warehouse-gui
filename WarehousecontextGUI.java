@@ -76,6 +76,13 @@ public class WarehousecontextGUI extends JFrame {
 		contentPane.add(btnYes);
 		
 		JButton btnNo = new JButton("No");
+		btnNo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				LoginGUI lg = new LoginGUI();
+                lg.setVisible(true);
+			}
+		});
 		btnNo.setBounds(132, 141, 89, 23);
 		contentPane.add(btnNo);
 		
