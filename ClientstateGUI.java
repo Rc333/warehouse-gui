@@ -53,7 +53,9 @@ public class ClientstateGUI extends JFrame {
 		JButton btnNewButton_2 = new JButton("logout");
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				dispose();
+				LoginGUI ls = new LoginGUI();
+				ls.setVisible(true);
 			}
 		});
 		btnNewButton_2.setBounds(288, 227, 89, 23);

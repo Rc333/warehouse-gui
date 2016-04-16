@@ -108,10 +108,23 @@ public class ManagerstateGUI extends JFrame {
 		contentPane.add(btnShowWaitlist);
 		
 		JButton btnClerkMenu = new JButton("Clerk menu");
+		btnClerkMenu.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ClerkstateGUI cs = new ClerkstateGUI();
+				cs.setVisible(true);
+				
+			}
+		});
 		btnClerkMenu.setBounds(197, 59, 89, 23);
 		contentPane.add(btnClerkMenu);
 		
 		JButton btnLogout = new JButton("Logout");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnLogout.setBounds(197, 104, 89, 23);
 		contentPane.add(btnLogout);
 	}

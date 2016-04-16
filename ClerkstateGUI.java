@@ -1,5 +1,7 @@
 package src;
 
+import static java.lang.Boolean.FALSE;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -24,7 +26,7 @@ public class ClerkstateGUI extends JFrame {
 	private JButton btnSave;
 	private JLabel lblClerkMenu;
 	private JLabel clerkLabel;
-
+	protected boolean CHECKCLIENT = FALSE;
 	/**
 	 * Launch the application.
 	 */
@@ -65,22 +67,50 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnAddClients);
 
 		JButton btnAddProducts = new JButton("Add products");
+		btnAddProducts.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				AddproductGUI ap = new AddproductGUI();
+				ap.setVisible(true);
+				
+			}
+		});
 		btnAddProducts.setBounds(10, 87, 144, 23);
 		contentPane.add(btnAddProducts);
 
 		btnNewButton = new JButton("Process order");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ProcessorderGUI po = new ProcessorderGUI();
+				po.setVisible(true);
+				
 			}
 		});
 		btnNewButton.setBounds(10, 121, 144, 23);
 		contentPane.add(btnNewButton);
 
 		btnNewButton_1 = new JButton("Receive shipment");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ReceiveshipmentGUI rs = new ReceiveshipmentGUI();
+				rs.setVisible(true);
+				
+			}
+		});
 		btnNewButton_1.setBounds(10, 155, 144, 23);
 		contentPane.add(btnNewButton_1);
 
 		btnNewButton_2 = new JButton("Receive payment");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				RceivepaymentGUI rp = new RceivepaymentGUI();
+				rp.setVisible(true);
+				
+			}
+		});
 		btnNewButton_2.setBounds(10, 192, 144, 23);
 		contentPane.add(btnNewButton_2);
 
@@ -89,6 +119,22 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnNewButton_3);
 
 		btnNewButton_4 = new JButton("logout");
+		btnNewButton_4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+//				if( CHECKCLIENT == FALSE)
+//				{
+//					LoginGUI lg = new LoginGUI();
+//					lg.setVisible(true);
+//				}
+//				else{
+//					ManagerstateGUI ms = new ManagerstateGUI();
+//					ms.setVisible(true);
+//				}
+					
+				
+			}
+		});
 		btnNewButton_4.setBounds(334, 71, 89, 23);
 		contentPane.add(btnNewButton_4);
 
