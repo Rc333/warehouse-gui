@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -96,7 +98,7 @@ public class AddclerkGUI extends JFrame {
 		    		labelClerk.setBounds(10, 236, 46, 14);
 		    		contentPane.add(labelClerk);
 		        }
-		        System.out.println(result);
+		        JOptionPane.showMessageDialog(null, result);
 				
 			}
 		});

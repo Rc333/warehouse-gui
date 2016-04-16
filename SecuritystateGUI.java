@@ -23,15 +23,17 @@ import java.awt.event.ContainerEvent;
 import java.awt.event.InputMethodListener;
 import java.awt.event.InputMethodEvent;
 import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class SecuritystateGUI extends JFrame {
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
 	
 	private JPanel contentPane;
-	private JTextField txtEnterYourDetails;
 	private JTextField txtUserId;
 	private JTextField txtPassword;
 	private JPasswordField passwordField;
+	private JButton btnCancel;
 
 	/**
 	 * Launch the application.
@@ -61,13 +63,6 @@ public class SecuritystateGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		txtEnterYourDetails = new JTextField();
-		txtEnterYourDetails.setBackground(new Color(153, 255, 204));
-		txtEnterYourDetails.setText("Enter your details");
-		txtEnterYourDetails.setBounds(146, 11, 103, 20);
-		contentPane.add(txtEnterYourDetails);
-		txtEnterYourDetails.setColumns(10);
-		
 		txtUserId = new JTextField();
 		txtUserId.setBackground(new Color(204, 153, 204));
 		txtUserId.setText("User id");
@@ -95,7 +90,7 @@ public class SecuritystateGUI extends JFrame {
 		passwordField.setBounds(126, 110, 86, 20);
 		contentPane.add(passwordField);
 		
-		JTextArea textArea = new JTextArea();
+		final JTextArea textArea = new JTextArea();
 		textArea.addInputMethodListener(new InputMethodListener() {
 			public void caretPositionChanged(InputMethodEvent arg0) {
 			}
@@ -123,6 +118,7 @@ public class SecuritystateGUI extends JFrame {
 				
 				//setVisible(false);
 				ClerkstateGUI cs = new ClerkstateGUI();
+				ManagerstateGUI ms = new ManagerstateGUI();
 				String iput = textArea.getText();
 				String iput1 = passwordField.getText();	
 				//System.out.println(iput + iput1);
@@ -132,6 +128,10 @@ public class SecuritystateGUI extends JFrame {
 				
 
 				 }	
+				else if(iput.equals("MANAGER") && iput1.equals("MANAGER")){
+					dispose();
+					ms.setVisible(true);
+				}
 				
 				else {
 					JLabel lblNewLabel = new JLabel("Invalid User Name Password");
@@ -191,6 +191,25 @@ public class SecuritystateGUI extends JFrame {
 		btnClear.setBackground(new Color(204, 51, 204));
 		btnClear.setBounds(7, 165, 89, 23);
 		contentPane.add(btnClear);
+		
+		JLabel lblEnterUserId = new JLabel("Enter User ID and Password");
+		lblEnterUserId.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblEnterUserId.setForeground(Color.GRAY);
+		lblEnterUserId.setBounds(89, 13, 224, 33);
+		contentPane.add(lblEnterUserId);
+		
+		btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				LoginGUI lg = new LoginGUI();
+				lg.setVisible(true);
+			
+			}
+		});
+		btnCancel.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
+		btnCancel.setBounds(274, 164, 126, 25);
+		contentPane.add(btnCancel);
 		
 		
 	}

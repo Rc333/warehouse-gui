@@ -8,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class ClientstateGUI extends JFrame {
 
@@ -41,14 +43,19 @@ public class ClientstateGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Show products");
-		btnNewButton.setBounds(10, 65, 89, 23);
+		btnNewButton.setBounds(10, 65, 150, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Show waitlist");
-		btnNewButton_1.setBounds(10, 113, 89, 23);
+		btnNewButton_1.setBounds(10, 113, 150, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("logout");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 		btnNewButton_2.setBounds(288, 227, 89, 23);
 		contentPane.add(btnNewButton_2);
 		

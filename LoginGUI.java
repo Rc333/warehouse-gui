@@ -91,25 +91,13 @@ public class LoginGUI extends JFrame {
 		btnNewButton_1.setBackground(new Color(153, 51, 204));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Securitystate securitystate;
-				securitystate = new Securitystate();
-				int clear;
-				//Securitystate sc = new Securitystate();
-				if(Securitystate.managerSecurity(true))
-				{ 
-					//  Loginstate clerk;
-					//if (Securitystate.clerkSecurity(clerk))
-
-				// String clerkname = getToken("Please input the clerk name: ");
-				//String clerkID = getToken("Please input the clerk id: ");
-				// if( clerkname.equals("CLERK") && clerkID.equals("CLERK"))
-				//{
-					(WarehouseContext.instance()).setLogin(WarehouseContext.IsManager);
-				    (WarehouseContext.instance()).changeState(1);
-				} 
-				if(false) 
-					  System.out.println("invalid id/uname(type both as CLERK)");
-					  
+			
+				dispose();
+				
+			
+				SecuritystateGUI ss = new SecuritystateGUI();
+				ss.setVisible(true);
+				
 			}
 		});
 		btnNewButton_1.setBounds(24, 90, 119, 23);
@@ -119,25 +107,27 @@ public class LoginGUI extends JFrame {
 		btnNewButton_2.setBackground(new Color(153, 51, 204));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SecuritystateGUIclient sc = new SecuritystateGUIclient();
+				sc.setVisible(true);
 				
-				Securitystate securitystate;
-				  securitystate = new Securitystate();
+				
 				int clear;
 				String clientID = null;
-				Securitystate sc = new Securitystate();
-				if(securitystate.clientSecurity(true));
-				{ 
+				
+				
+				 
 					
 					
 				  
 			  //  String clientID = getToken("Please input the client id: ");
 			    //if (ClientList.instance().checkClient(clientID) != null){
-			      (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
-			      (WarehouseContext.instance()).setUser(clientID);      
-			      (WarehouseContext.instance()).changeState(2);
-			    }
-			     if (false)
-			      System.out.println("Invalid client id.");
+//			      (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
+//			      (WarehouseContext.instance()).setUser(clientID);      
+//			      (WarehouseContext.instance()).changeState(2);
+			    
+			    // if (false)
+			      //System.out.println("Invalid client id.");
 			}
 		});
 		btnNewButton_2.setBounds(24, 152, 119, 23);
