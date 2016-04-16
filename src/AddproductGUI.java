@@ -7,8 +7,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AddproductGUI extends JFrame {
 
@@ -96,6 +99,30 @@ public class AddproductGUI extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnAddProduct = new JButton("Add Product");
+		btnAddProduct.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String name = textField.getText();
+				String productID = textField_1.getText();
+				String manufacturer = textField_2.getText();  
+	            Double price = Double.parseDouble(textField_3.getText());
+                Integer quantity = Integer.parseInt(textField_3.getText());
+				Product result;
+		            result = Warehouse.instance().addProduct(name, manufacturer, productID, price, quantity);
+		            if (result == null) {
+			        	JLabel labelClerk = new JLabel("invalid user");
+			    		labelClerk.setBounds(10, 236, 46, 14);
+			    		contentPane.add(labelClerk);
+			        }
+			        JOptionPane.showMessageDialog(null, result);
+			        
+			        ClerkstateGUI csG = new ClerkstateGUI();
+			        csG.setVisible(true);
+				
+				
+				
+			}
+		});
 		btnAddProduct.setBounds(145, 237, 108, 23);
 		contentPane.add(btnAddProduct);
 	}
