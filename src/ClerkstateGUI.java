@@ -19,7 +19,7 @@ import javax.swing.ImageIcon;
 import java.awt.Color;
 
 public class ClerkstateGUI extends JFrame {
-
+	 private static Warehouse warehouse;
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private JButton btnNewButton_1;
@@ -84,6 +84,8 @@ public class ClerkstateGUI extends JFrame {
 		btnNewButton = new JButton("Process order");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				
 				dispose();
 				ProcessorderGUI po = new ProcessorderGUI();
 				po.setVisible(true);
@@ -145,6 +147,22 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnNewButton_4);
 
 		btnSave = new JButton("save");
+		btnSave.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 if (warehouse.save()) {
+			           // System.out.println(" The warehouse has been successfully saved in the file WarehouseData \n");
+					 JOptionPane.showMessageDialog(null, "The warehouse has been successfully saved in the file WarehouseData");   
+				 
+				 } else {
+			          //  System.out.println(" There has been an error in saving \n");
+						JLabel labelClerk = new JLabel("invalid user");
+			    		labelClerk.setBounds(10, 236, 46, 14);
+			    		contentPane.add(labelClerk);   
+				 }
+				
+			}
+		});
 		btnSave.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\save.png"));
 		btnSave.setBounds(334, 35, 108, 41);
 		contentPane.add(btnSave);
