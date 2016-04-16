@@ -13,11 +13,13 @@ import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class LoginGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtLoginPage;
 
 	/**
 	 * Launch the application.
@@ -48,7 +50,7 @@ public class LoginGUI extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnNewButton = new JButton("Clerk Login");
-		btnNewButton.setBackground(new Color(153, 51, 153));
+		btnNewButton.setBackground(Color.GRAY);
 		btnNewButton.addActionListener(new ActionListener() {
 			
 			
@@ -88,7 +90,7 @@ public class LoginGUI extends JFrame {
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Manager Login");
-		btnNewButton_1.setBackground(new Color(153, 51, 204));
+		btnNewButton_1.setBackground(Color.GRAY);
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			
@@ -104,7 +106,7 @@ public class LoginGUI extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Client Login");
-		btnNewButton_2.setBackground(new Color(153, 51, 204));
+		btnNewButton_2.setBackground(Color.GRAY);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -133,12 +135,12 @@ public class LoginGUI extends JFrame {
 		btnNewButton_2.setBounds(24, 152, 119, 23);
 		contentPane.add(btnNewButton_2);
 		
-		txtLoginPage = new JTextField();
-		txtLoginPage.setBackground(new Color(153, 255, 204));
-		txtLoginPage.setText("LOGIN PAGE");
-		txtLoginPage.setBounds(149, 11, 86, 20);
-		contentPane.add(txtLoginPage);
-		txtLoginPage.setColumns(10);
+		JLabel lblWarehouseLogin = new JLabel("WareHouse Login");
+		lblWarehouseLogin.setForeground(new Color(0, 128, 128));
+		lblWarehouseLogin.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblWarehouseLogin.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\login.png"));
+		lblWarehouseLogin.setBounds(187, 13, 181, 30);
+		contentPane.add(lblWarehouseLogin);
 	}
 
 	protected void close() {

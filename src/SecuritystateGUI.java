@@ -108,11 +108,11 @@ public class SecuritystateGUI extends JFrame {
 			}
 		});
 		textArea.setBackground(new Color(255, 255, 204));
-		textArea.setBounds(126, 59, 86, 22);
+		textArea.setBounds(126, 60, 86, 20);
 		contentPane.add(textArea);
 		
 		JButton btnLogin = new JButton("Login");
-		btnLogin.setBackground(new Color(204, 51, 204));
+		btnLogin.setBackground(new Color(0, 102, 102));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -184,12 +184,12 @@ public class SecuritystateGUI extends JFrame {
 
 				
 			}});
-		btnLogin.setBounds(123, 165, 89, 23);
+		btnLogin.setBounds(142, 165, 110, 23);
 		contentPane.add(btnLogin);
 		
 		JButton btnClear = new JButton("clear");
-		btnClear.setBackground(new Color(204, 51, 204));
-		btnClear.setBounds(7, 165, 89, 23);
+		btnClear.setBackground(new Color(204, 204, 102));
+		btnClear.setBounds(26, 165, 104, 23);
 		contentPane.add(btnClear);
 		
 		JLabel lblEnterUserId = new JLabel("Enter User ID and Password");
@@ -199,6 +199,7 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.add(lblEnterUserId);
 		
 		btnCancel = new JButton("Cancel");
+		btnCancel.setBackground(Color.GRAY);
 		btnCancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -208,7 +209,7 @@ public class SecuritystateGUI extends JFrame {
 			}
 		});
 		btnCancel.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
-		btnCancel.setBounds(274, 164, 126, 25);
+		btnCancel.setBounds(292, 164, 104, 25);
 		contentPane.add(btnCancel);
 		
 		

@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.awt.Font;
+import javax.swing.ImageIcon;
 
 public class ClerkstateGUI extends JFrame {
 
@@ -24,9 +26,9 @@ public class ClerkstateGUI extends JFrame {
 	private JButton btnNewButton_3;
 	private JButton btnNewButton_4;
 	private JButton btnSave;
-	private JLabel lblClerkMenu;
 	private JLabel clerkLabel;
 	protected boolean CHECKCLIENT = FALSE;
+	private JLabel lblClerkMenu_1;
 	/**
 	 * Launch the application.
 	 */
@@ -48,7 +50,7 @@ public class ClerkstateGUI extends JFrame {
 	 */
 	public ClerkstateGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 472, 347);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -119,32 +121,32 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnNewButton_3);
 
 		btnNewButton_4 = new JButton("logout");
+		btnNewButton_4.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-//				if( CHECKCLIENT == FALSE)
-//				{
-//					LoginGUI lg = new LoginGUI();
-//					lg.setVisible(true);
-//				}
-//				else{
-//					ManagerstateGUI ms = new ManagerstateGUI();
-//					ms.setVisible(true);
-//				}
+				if( Managerstate.instance().CHECKMANAGER == false)
+				{
+					LoginGUI lg = new LoginGUI();
+					lg.setVisible(true);
+				}
+				else{
+					Managerstate.instance().CHECKMANAGER = false;
+					ManagerstateGUI ms = new ManagerstateGUI();
+					ms.setVisible(true);
+					
+				}
 					
 				
 			}
 		});
-		btnNewButton_4.setBounds(334, 71, 89, 23);
+		btnNewButton_4.setBounds(334, 89, 108, 33);
 		contentPane.add(btnNewButton_4);
 
 		btnSave = new JButton("save");
-		btnSave.setBounds(334, 35, 89, 23);
+		btnSave.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\save.png"));
+		btnSave.setBounds(334, 35, 108, 41);
 		contentPane.add(btnSave);
-
-		lblClerkMenu = new JLabel("Clerk Menu");
-		lblClerkMenu.setBounds(155, 11, 124, 14);
-		contentPane.add(lblClerkMenu);
 
 		JButton btnClientMenu = new JButton("Client Menu");
 		btnClientMenu.addActionListener(new ActionListener() {
@@ -152,6 +154,7 @@ public class ClerkstateGUI extends JFrame {
 				//
 				String clientID = JOptionPane.showInputDialog(null, "Please input the user id: ");
 				if (ClientList.instance().checkClient(clientID) != null) {
+					Clerkstate.instance().CHECKCLIENT = true;
 					ClientstateGUI cs = new ClientstateGUI();
 					dispose();
 					cs.setVisible(true);
@@ -160,11 +163,16 @@ public class ClerkstateGUI extends JFrame {
 
 			}
 		});
-		btnClientMenu.setBounds(308, 179, 115, 25);
+		btnClientMenu.setBounds(10, 262, 144, 25);
 		contentPane.add(btnClientMenu);
 		
 		clerkLabel = new JLabel("");
 		clerkLabel.setBounds(244, 229, 138, 16);
 		contentPane.add(clerkLabel);
+		
+		lblClerkMenu_1 = new JLabel("CLERK MENU");
+		lblClerkMenu_1.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblClerkMenu_1.setBounds(167, 0, 124, 56);
+		contentPane.add(lblClerkMenu_1);
 	}
 }

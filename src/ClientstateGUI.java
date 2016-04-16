@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class ClientstateGUI extends JFrame {
 
@@ -51,14 +52,24 @@ public class ClientstateGUI extends JFrame {
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("logout");
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				dispose();
+				if (Clerkstate.instance().CHECKCLIENT==false){
 				LoginGUI ls = new LoginGUI();
 				ls.setVisible(true);
+				}
+				else {
+					ClerkstateGUI cs = new ClerkstateGUI();
+					cs.setVisible(true);
+					Clerkstate.instance().CHECKCLIENT=false;
+					
+				}
 			}
 		});
-		btnNewButton_2.setBounds(288, 227, 89, 23);
+		btnNewButton_2.setBounds(297, 65, 100, 33);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblLientMenu = new JLabel("Client menu");

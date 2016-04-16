@@ -99,6 +99,9 @@ public class AddclerkGUI extends JFrame {
 		    		contentPane.add(labelClerk);
 		        }
 		        JOptionPane.showMessageDialog(null, result);
+		        
+		        ClerkstateGUI csG = new ClerkstateGUI();
+		        csG.setVisible(true);
 				
 			}
 		});
