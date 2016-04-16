@@ -27,8 +27,8 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 
 public class SecuritystateGUI extends JFrame {
-	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
-	
+	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
 	private JPanel contentPane;
 	private JPasswordField passwordField;
 	private JButton btnCancel;
@@ -62,116 +62,79 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.addContainerListener(new ContainerAdapter() {
 			// String clerkID = getToken("Please input the clerk id: ");
-			//@Override
+			// @Override
 			public void componentAdded(ContainerEvent e) {
-				String iput1 = passwordField.getText();	
+				String iput1 = passwordField.getText();
 			}
 		});
 		passwordField.setBackground(new Color(255, 255, 204));
 		passwordField.setBounds(126, 110, 86, 20);
 		contentPane.add(passwordField);
-		
+
 		final JTextArea textArea = new JTextArea();
 		textArea.addInputMethodListener(new InputMethodListener() {
 			public void caretPositionChanged(InputMethodEvent arg0) {
 			}
+
 			public void inputMethodTextChanged(InputMethodEvent arg0) {
 			}
 		});
 		textArea.addContainerListener(new ContainerAdapter() {
-			//@Override
-			
+			// @Override
+
 			public void componentAdded(ContainerEvent arg0) {
-				
-			//	 String clerkname = getToken("Please input the clerk name: ");
-		String iput = textArea.getText();	
-		//System.out.println(iput);
+
+				// String clerkname = getToken("Please input the clerk name: ");
+				String iput = textArea.getText();
+				// System.out.println(iput);
 			}
 		});
 		textArea.setBackground(new Color(255, 255, 204));
 		textArea.setBounds(126, 60, 86, 20);
 		contentPane.add(textArea);
-		
+
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBackground(new Color(0, 102, 102));
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				//setVisible(false);
+
+				// setVisible(false);
 				ClerkstateGUI cs = new ClerkstateGUI();
 				ManagerstateGUI ms = new ManagerstateGUI();
 				String iput = textArea.getText();
-				String iput1 = passwordField.getText();	
-				//System.out.println(iput + iput1);
+				String iput1 = passwordField.getText();
+				// System.out.println(iput + iput1);
 				if (iput.equals("CLERK") && iput1.equals("CLERK")) {
-					dispose();   
+					dispose();
 					cs.setVisible(true);
-				
 
-				 }	
-				else if(iput.equals("MANAGER") && iput1.equals("MANAGER")){
+				} else if (iput.equals("MANAGER") && iput1.equals("MANAGER")) {
 					dispose();
 					ms.setVisible(true);
 				}
-				
+
 				else {
+
+//					dispose();
+
+					SecuritystateGUI sg = new SecuritystateGUI();
+
 					JLabel lblNewLabel = new JLabel("Invalid User Name Password");
 					lblNewLabel.setBounds(10, 217, 140, 14);
 					contentPane.add(lblNewLabel);
 					lblNewLabel.setText("Invalid user/pass");
-					
-					
-				}//return null != null;
-					
-						  
-				  
-				 //manager 
-				/*public static boolean managerSecurity(boolean b){
-					// Securitystate sc = new Securitystate();
-					  String managername = getToken("Please input the manager name: ");
-					  String managerID = getToken("Please input the manager id: ");
-					  if( managername.equals("MANAGER") && managerID.equals("MANAGER"))
-					  {
-						  return true;
-					  // (WarehouseContext.instance()).setLogin(WarehouseContext.IsManager);
-					    //(WarehouseContext.instance()).changeState(1);
-					  }
-					  else 
-						  System.out.println("invalid id/uname(type both as MANAGER)");
-					 return (false); 
-				}
-					  
-				public static boolean clientSecurity(boolean b){
-					// Securitystate sc = new Securitystate();
-				    String clientID = getToken("Please input the client id: ");
-				    if (ClientList.instance().checkClient(clientID) != null){
-				    	
-				    //	(WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
-					    //(WarehouseContext.instance()).setUser(clientID);      
-				    	
-				    	return (true);
-				    }
-				   
-				    
-				     // (WarehouseContext.instance()).setLogin(WarehouseContext.IsClient);
-				      //(WarehouseContext.instance()).setUser(clientID);      
-				      //(WarehouseContext.instance()).changeState(2);
-				    //}
-				    else 
-				      System.out.println("Invalid client id.");
-				     return (false);
-				    	  
-				}*/
+//					sg.setVisible(true);
+				} // return null != null;
 
-				
-			}});
+			}
+		});
 		btnLogin.setBounds(142, 165, 110, 23);
 		contentPane.add(btnLogin);
-		
+
 		JButton btnClear = new JButton("clear");
 		btnClear.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -183,13 +146,13 @@ public class SecuritystateGUI extends JFrame {
 		btnClear.setBackground(new Color(204, 204, 102));
 		btnClear.setBounds(26, 165, 104, 23);
 		contentPane.add(btnClear);
-		
+
 		JLabel lblEnterUserId = new JLabel("Enter User ID and Password");
 		lblEnterUserId.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblEnterUserId.setForeground(Color.GRAY);
 		lblEnterUserId.setBounds(89, 13, 224, 33);
 		contentPane.add(lblEnterUserId);
-		
+
 		btnCancel = new JButton("Cancel");
 		btnCancel.setBackground(Color.GRAY);
 		btnCancel.addActionListener(new ActionListener() {
@@ -197,62 +160,61 @@ public class SecuritystateGUI extends JFrame {
 				dispose();
 				LoginGUI lg = new LoginGUI();
 				lg.setVisible(true);
-			
+
 			}
 		});
 		btnCancel.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
 		btnCancel.setBounds(292, 164, 104, 25);
 		contentPane.add(btnCancel);
-		
+
 		lblNewLabel_1 = new JLabel("User Name");
 		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblNewLabel_1.setBackground(Color.GRAY);
 		lblNewLabel_1.setBounds(26, 63, 70, 17);
 		contentPane.add(lblNewLabel_1);
-		
+
 		lblPassword = new JLabel("Password");
 		lblPassword.setBackground(Color.GRAY);
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPassword.setBounds(26, 112, 70, 16);
 		contentPane.add(lblPassword);
-		
-		
+
 	}
-		public boolean clerkSecurityb(boolean b) {
-			// TODO Auto-generated method stub
-			return false;
+
+	public boolean clerkSecurityb(boolean b) {
+		// TODO Auto-generated method stub
+		return false;
 	}
-		
-		public static String getToken(String prompt) {
-		    do {
-		      try {
-		        System.out.println(prompt);
-		        String line = reader.readLine();
-		        StringTokenizer tokenizer = new StringTokenizer(line,"\n\r\f");
-		        if (tokenizer.hasMoreTokens()) {
-		          return tokenizer.nextToken();
-		        }
-		      } catch (IOException ioe) {
-		        System.exit(0);
-		      }
-		    } while (true);
-		  }
 
-		public static boolean clerkSecurity(boolean b) {
-			// TODO Auto-generated method stub
-			 String clerkname = getToken("Please input the clerk name: ");
-		        String clerkID = getToken("Please input the clerk id: ");
-		        if (clerkname.equals("CLERK") && clerkID.equals("CLERK")) {
+	public static String getToken(String prompt) {
+		do {
+			try {
+				System.out.println(prompt);
+				String line = reader.readLine();
+				StringTokenizer tokenizer = new StringTokenizer(line, "\n\r\f");
+				if (tokenizer.hasMoreTokens()) {
+					return tokenizer.nextToken();
+				}
+			} catch (IOException ioe) {
+				System.exit(0);
+			}
+		} while (true);
+	}
 
-		            return (true);
-			    //(WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
-		            //(WarehouseContext.instance()).changeState(0);
-		            //} 
-		        } else {
-		            System.out.println("invalid id/uname(type both as CLERK)");
-		        }
+	public static boolean clerkSecurity(boolean b) {
+		// TODO Auto-generated method stub
+		String clerkname = getToken("Please input the clerk name: ");
+		String clerkID = getToken("Please input the clerk id: ");
+		if (clerkname.equals("CLERK") && clerkID.equals("CLERK")) {
 
-		        return (false);
+			return (true);
+			// (WarehouseContext.instance()).setLogin(WarehouseContext.IsClerk);
+			// (WarehouseContext.instance()).changeState(0);
+			// }
+		} else {
+			System.out.println("invalid id/uname(type both as CLERK)");
 		}
+
+		return (false);
+	}
 }
-	
