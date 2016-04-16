@@ -86,7 +86,7 @@ public class LoginGUI extends JFrame {
 				      
 			}
 		});
-		btnNewButton.setBounds(24, 35, 119, 23);
+		btnNewButton.setBounds(24, 71, 119, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Manager Login");
@@ -102,7 +102,7 @@ public class LoginGUI extends JFrame {
 				
 			}
 		});
-		btnNewButton_1.setBounds(24, 90, 119, 23);
+		btnNewButton_1.setBounds(24, 118, 119, 23);
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Client Login");
@@ -132,14 +132,14 @@ public class LoginGUI extends JFrame {
 			      //System.out.println("Invalid client id.");
 			}
 		});
-		btnNewButton_2.setBounds(24, 152, 119, 23);
+		btnNewButton_2.setBounds(24, 172, 119, 23);
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblWarehouseLogin = new JLabel("WareHouse Login");
 		lblWarehouseLogin.setForeground(new Color(0, 128, 128));
 		lblWarehouseLogin.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblWarehouseLogin.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\login.png"));
-		lblWarehouseLogin.setBounds(187, 13, 181, 30);
+		lblWarehouseLogin.setBounds(122, 13, 181, 30);
 		contentPane.add(lblWarehouseLogin);
 	}
 

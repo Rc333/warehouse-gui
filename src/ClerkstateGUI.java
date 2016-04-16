@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import java.awt.Font;
 import javax.swing.ImageIcon;
+import java.awt.Color;
 
 public class ClerkstateGUI extends JFrame {
 
@@ -149,6 +150,7 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnSave);
 
 		JButton btnClientMenu = new JButton("Client Menu");
+		btnClientMenu.setBackground(new Color(0, 153, 102));
 		btnClientMenu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				//

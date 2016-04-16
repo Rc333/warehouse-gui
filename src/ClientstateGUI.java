@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class ClientstateGUI extends JFrame {
 
@@ -73,7 +74,8 @@ public class ClientstateGUI extends JFrame {
 		contentPane.add(btnNewButton_2);
 		
 		JLabel lblLientMenu = new JLabel("Client menu");
-		lblLientMenu.setBounds(156, 11, 78, 14);
+		lblLientMenu.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblLientMenu.setBounds(156, 11, 121, 33);
 		contentPane.add(lblLientMenu);
 	}
 

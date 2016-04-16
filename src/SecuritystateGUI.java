@@ -30,10 +30,10 @@ public class SecuritystateGUI extends JFrame {
 	private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in)); 
 	
 	private JPanel contentPane;
-	private JTextField txtUserId;
-	private JTextField txtPassword;
 	private JPasswordField passwordField;
 	private JButton btnCancel;
+	private JLabel lblNewLabel_1;
+	private JLabel lblPassword;
 
 	/**
 	 * Launch the application.
@@ -62,21 +62,6 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		txtUserId = new JTextField();
-		txtUserId.setBackground(new Color(204, 153, 204));
-		txtUserId.setText("User id");
-		txtUserId.setBounds(10, 61, 86, 20);
-		contentPane.add(txtUserId);
-		txtUserId.setColumns(10);
-		
-		
-		txtPassword = new JTextField();
-		txtPassword.setBackground(new Color(204, 153, 204));
-		txtPassword.setText("Password");
-		txtPassword.setBounds(10, 110, 86, 20);
-		contentPane.add(txtPassword);
-		txtPassword.setColumns(10);
 		
 		passwordField = new JPasswordField();
 		passwordField.addContainerListener(new ContainerAdapter() {
@@ -188,6 +173,13 @@ public class SecuritystateGUI extends JFrame {
 		contentPane.add(btnLogin);
 		
 		JButton btnClear = new JButton("clear");
+		btnClear.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				SecuritystateGUI sg = new SecuritystateGUI();
+				sg.setVisible(true);
+			}
+		});
 		btnClear.setBackground(new Color(204, 204, 102));
 		btnClear.setBounds(26, 165, 104, 23);
 		contentPane.add(btnClear);
@@ -211,6 +203,18 @@ public class SecuritystateGUI extends JFrame {
 		btnCancel.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
 		btnCancel.setBounds(292, 164, 104, 25);
 		contentPane.add(btnCancel);
+		
+		lblNewLabel_1 = new JLabel("User Name");
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblNewLabel_1.setBackground(Color.GRAY);
+		lblNewLabel_1.setBounds(26, 63, 70, 17);
+		contentPane.add(lblNewLabel_1);
+		
+		lblPassword = new JLabel("Password");
+		lblPassword.setBackground(Color.GRAY);
+		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
+		lblPassword.setBounds(26, 112, 70, 16);
+		contentPane.add(lblPassword);
 		
 		
 	}
