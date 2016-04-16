@@ -11,6 +11,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -120,6 +121,16 @@ public class ClerkstateGUI extends JFrame {
 		contentPane.add(btnNewButton_2);
 
 		btnNewButton_3 = new JButton("Get transactions");
+		btnNewButton_3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				 List allTransactions = warehouse.getTransactions();
+			        for (Object transactions : allTransactions) {
+			        	JOptionPane.showMessageDialog(null, transactions);
+			        	//System.out.println(transactions);
+				
+			}
+			}});
 		btnNewButton_3.setBounds(10, 226, 144, 23);
 		contentPane.add(btnNewButton_3);
 
