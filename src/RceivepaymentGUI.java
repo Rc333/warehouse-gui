@@ -7,14 +7,16 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class RceivepaymentGUI extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -43,7 +45,7 @@ public class RceivepaymentGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblClientPayment = new JLabel("C;lient payment");
+		JLabel lblClientPayment = new JLabel("Client payment");
 		lblClientPayment.setBounds(147, 27, 109, 14);
 		contentPane.add(lblClientPayment);
 		
@@ -56,18 +58,29 @@ public class RceivepaymentGUI extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnPay = new JButton("Pay");
-		btnPay.setBounds(144, 186, 89, 23);
+		JButton btnPay = new JButton("Enter");
+		btnPay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String clientID = textField.getText();
+				
+				Warehouse warehouse = new Warehouse();
+				Client client = warehouse.instance().testClient(clientID);
+			  //  return client;
+				JOptionPane.showMessageDialog(null, "total balance is" + client.getBalance() );
+				PaymentGUI pg = new PaymentGUI();
+				pg.setVisible(true);
+		       
+//		        
+//		        Double price = Double.parseDouble(getToken("How much would client like to pay?"));
+//		        client.balance = client.balance - price;
+//		        System.out.println("Your new balance is " + client.balance);
+				
+				//JOptionPane.showInputDialog(null, UserInterface.instance().recievePayment());
+			}
+		});
+		btnPay.setBounds(147, 142, 89, 23);
 		contentPane.add(btnPay);
-		
-		JButton btnAmount = new JButton("amount");
-		btnAmount.setBounds(22, 136, 89, 23);
-		contentPane.add(btnAmount);
-		
-		textField_1 = new JTextField();
-		textField_1.setBounds(147, 137, 86, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
 	}
 
 }

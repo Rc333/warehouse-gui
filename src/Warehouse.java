@@ -27,7 +27,7 @@ public class Warehouse implements Serializable {
     private List transactions = new LinkedList(); //product transaction
     protected Double sumProduct = 0.0;
 
-    private Warehouse() {
+    public Warehouse() {
         ProductList = ProductList.instance();
         clientList = ClientList.instance();
         invoiceList = InvoiceList.instance();
@@ -69,7 +69,7 @@ public class Warehouse implements Serializable {
         return null;
     }
 
-    public Iterator getProducts() {
+    public  Iterator getProducts() {
         return ProductList.getProducts();
     }
 

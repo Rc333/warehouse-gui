@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -64,9 +65,8 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowClients = new JButton("Show clients");
 		btnShowClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				dispose();
-				ShowclientsGUI sc = new ShowclientsGUI();
-				sc.setVisible(true);
+			
+				 JOptionPane.showMessageDialog(null, Warehouse.instance().getClients());
 				
 			}
 		});
@@ -76,8 +76,9 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowProducts = new JButton("Show products");
 		btnShowProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				ShowproductsGUI sp = new ShowproductsGUI();
-				sp.setVisible(true);
+				
+				 JOptionPane.showMessageDialog(null, Warehouse.instance().getProducts());
+				
 				
 			}
 		});
@@ -90,7 +91,7 @@ public class ManagerstateGUI extends JFrame {
 				dispose();
 				ShowinvoicesGUI si = new ShowinvoicesGUI();
 				si.setVisible(true);
-		
+				
 				
 			}
 		});
@@ -100,9 +101,8 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowWaitlist = new JButton("Show waitlist");
 		btnShowWaitlist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				ShowwaitlistGUI sw = new ShowwaitlistGUI();
-				sw.setVisible(true);
+			
+				JOptionPane.showMessageDialog(null, Warehouse.instance().getWaitlist());
 				
 				
 			}

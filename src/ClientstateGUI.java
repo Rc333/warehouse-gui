@@ -18,7 +18,7 @@ import java.awt.Font;
 
 public class ClientstateGUI extends JFrame {
 	  private static Warehouse warehouse;
-
+	  private ProductList ProductList;
 	private JPanel contentPane;
 
 	/**
@@ -51,32 +51,24 @@ public class ClientstateGUI extends JFrame {
 		JButton btnNewButton = new JButton("Show products");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				
-//				
-//				 Iterator allProducts = warehouse.getProducts();
-//			        while (allProducts.hasNext()) {
-//			            Product product = (Product) (allProducts.next());
-//			            System.out.println(product.toString());
-//			        }
-			 Iterator allProducts = warehouse.getProducts();
-			        while (allProducts.hasNext()) {
-			            Product product = (Product) (allProducts.next());
-			           
-			        			            JOptionPane.showMessageDialog(null, product.toString());
-////			            String text = product.getText();
-//			            product.append(text + newline);
-//			            product.selectAll();
-			     
-			            // System.out.println(product.toString());
-				
-			}
-			}
-			}	);
+				dispose();
+				// return ProductList.getProducts();
+				Warehouse w = new Warehouse();
+			  
+				 JOptionPane.showMessageDialog(null, Warehouse.instance().getProducts());
+				 
+			}}	);
 		btnNewButton.setBounds(10, 65, 150, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Show waitlist");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				 JOptionPane.showMessageDialog(null, Warehouse.instance().getWaitlist());
+				
+			}
+		});
 		btnNewButton_1.setBounds(10, 113, 150, 23);
 		contentPane.add(btnNewButton_1);
 		

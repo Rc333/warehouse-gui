@@ -23,7 +23,13 @@ public class Client implements Serializable {
         id = CLIENT_STRING + (ClientIdServer.instance()).getId();
     }
 
-    public String getName() {
+    public Client() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+
+	public String getName() {
         return name;
     }
 

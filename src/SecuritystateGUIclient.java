@@ -67,7 +67,7 @@ public class SecuritystateGUIclient extends JFrame {
 				//System.out.println(iput + iput1);
 				if (Warehouse.instance().testClient(clientID ) != null) {
 					
-					System.out.println(clientID);
+					//System.out.println(clientID);
 					dispose();   
 					cs.setVisible(true);
 				
