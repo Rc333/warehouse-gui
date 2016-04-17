@@ -12,6 +12,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class AddproductGUI extends JFrame {
 
@@ -99,6 +100,7 @@ public class AddproductGUI extends JFrame {
 		textField_4.setColumns(10);
 		
 		JButton btnAddProduct = new JButton("Add Product");
+		btnAddProduct.setIcon(new ImageIcon(AddproductGUI.class.getResource("/iconimages/Button-Add-icon.png")));
 		btnAddProduct.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -123,10 +125,11 @@ public class AddproductGUI extends JFrame {
 				
 			}
 		});
-		btnAddProduct.setBounds(126, 247, 108, 36);
+		btnAddProduct.setBounds(126, 247, 126, 36);
 		contentPane.add(btnAddProduct);
 		
 		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.setIcon(new ImageIcon(AddproductGUI.class.getResource("/iconimages/cancel.png")));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -134,7 +137,7 @@ public class AddproductGUI extends JFrame {
 				cs.setVisible(true);
 			}
 		});
-		btnNewButton_1.setBounds(287, 247, 97, 36);
+		btnNewButton_1.setBounds(287, 247, 111, 36);
 		contentPane.add(btnNewButton_1);
 	}
 }

@@ -83,8 +83,8 @@ public class ProcessorderGUI extends JFrame {
 		contentPane.add(quantityField);
 		quantityField.setColumns(10);
 		
-		JButton btnOrderItem = new JButton("Order Item");
-		btnOrderItem.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\imgres.png"));
+		JButton btnOrderItem = new JButton("Order ");
+		btnOrderItem.setIcon(new ImageIcon(ProcessorderGUI.class.getResource("/iconimages/imgres.png")));
 		btnOrderItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -132,7 +132,7 @@ public class ProcessorderGUI extends JFrame {
 				
 			}}
 		});
-		btnOrderItem.setBounds(125, 197, 114, 44);
+		btnOrderItem.setBounds(125, 197, 140, 44);
 		contentPane.add(btnOrderItem);
 		
 		JButton btnCancel = new JButton("Cancel");
@@ -143,7 +143,7 @@ public class ProcessorderGUI extends JFrame {
 				csg.setVisible(true);
 			}
 		});
-		btnCancel.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
+		btnCancel.setIcon(new ImageIcon(ProcessorderGUI.class.getResource("/iconimages/cancel.png")));
 		btnCancel.setBounds(278, 197, 123, 44);
 		contentPane.add(btnCancel);
 	}

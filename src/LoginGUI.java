@@ -138,7 +138,7 @@ public class LoginGUI extends JFrame {
 		JLabel lblWarehouseLogin = new JLabel("WareHouse Login");
 		lblWarehouseLogin.setForeground(new Color(0, 128, 128));
 		lblWarehouseLogin.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblWarehouseLogin.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\login.png"));
+		lblWarehouseLogin.setIcon(new ImageIcon(LoginGUI.class.getResource("/iconimages/login.png")));
 		lblWarehouseLogin.setBounds(122, 13, 181, 30);
 		contentPane.add(lblWarehouseLogin);
 	}

@@ -81,7 +81,7 @@ public class AddclerkGUI extends JFrame {
 		contentPane.add(lblClerkMenu);
 		
 		JButton btnAddClient = new JButton("Add Client");
-		btnAddClient.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\Button-Add-icon.png"));
+		btnAddClient.setIcon(new ImageIcon(AddclerkGUI.class.getResource("/iconimages/Button-Add-icon.png")));
 		btnAddClient.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -107,7 +107,7 @@ public class AddclerkGUI extends JFrame {
 		contentPane.add(btnAddClient);
 		
 		JButton btnLogout = new JButton("Logout");
-		btnLogout.setIcon(new ImageIcon("C:\\Users\\bikra\\Desktop\\cancel.png"));
+		btnLogout.setIcon(new ImageIcon(AddclerkGUI.class.getResource("/iconimages/cancel.png")));
 		btnLogout.setBounds(10, 182, 106, 33);
 		contentPane.add(btnLogout);
 		
