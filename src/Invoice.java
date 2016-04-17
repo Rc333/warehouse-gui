@@ -19,7 +19,7 @@ public class Invoice implements Serializable {
         this.quantity = quantity;
         this.sum = product.getPrice() * quantity;
 
-        invoiceStr = ("Customer: " + client.getName() + " Product: " + product.getProductName() + " price: " + product.getPrice() + " quantity: " + quantity + " grand_total " + sum + " on Date:"+date.getTime());
+        invoiceStr = ("Customer: " + client.getName() + " Product: " + product.getProductName() + " price: " + product.getPrice() + " quantity: " + quantity + " grand_total " + sum + " on Date:"+date.toString());
 
     }
 

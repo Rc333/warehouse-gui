@@ -43,7 +43,7 @@ public class AddproductGUI extends JFrame {
 	 */
 	public AddproductGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 388);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -54,23 +54,23 @@ public class AddproductGUI extends JFrame {
 		contentPane.add(lblAddingProducts);
 		
 		JButton btnNewButton = new JButton("product name");
-		btnNewButton.setBounds(10, 65, 99, 23);
+		btnNewButton.setBounds(10, 65, 126, 23);
 		contentPane.add(btnNewButton);
 		
 		JButton btnProductId = new JButton("Product ID");
-		btnProductId.setBounds(10, 109, 89, 23);
+		btnProductId.setBounds(10, 101, 126, 23);
 		contentPane.add(btnProductId);
 		
 		JButton btnManufacturer = new JButton("Manufacturer");
-		btnManufacturer.setBounds(10, 143, 89, 23);
+		btnManufacturer.setBounds(10, 137, 126, 23);
 		contentPane.add(btnManufacturer);
 		
 		JButton btnPrice = new JButton("price");
-		btnPrice.setBounds(10, 177, 89, 23);
+		btnPrice.setBounds(10, 173, 126, 23);
 		contentPane.add(btnPrice);
 		
 		JButton btnQuantity = new JButton("Quantity");
-		btnQuantity.setBounds(10, 211, 89, 23);
+		btnQuantity.setBounds(10, 211, 126, 23);
 		contentPane.add(btnQuantity);
 		
 		textField = new JTextField();
@@ -79,22 +79,22 @@ public class AddproductGUI extends JFrame {
 		textField.setColumns(10);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(148, 110, 86, 20);
+		textField_1.setBounds(148, 102, 86, 20);
 		contentPane.add(textField_1);
 		textField_1.setColumns(10);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(148, 144, 86, 20);
+		textField_2.setBounds(148, 138, 86, 20);
 		contentPane.add(textField_2);
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(148, 175, 86, 20);
+		textField_3.setBounds(148, 174, 86, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(148, 206, 86, 20);
+		textField_4.setBounds(148, 212, 86, 20);
 		contentPane.add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -123,7 +123,18 @@ public class AddproductGUI extends JFrame {
 				
 			}
 		});
-		btnAddProduct.setBounds(145, 237, 108, 23);
+		btnAddProduct.setBounds(126, 247, 108, 36);
 		contentPane.add(btnAddProduct);
+		
+		JButton btnNewButton_1 = new JButton("Cancel");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ClientstateGUI cs = new ClientstateGUI();
+				cs.setVisible(true);
+			}
+		});
+		btnNewButton_1.setBounds(287, 247, 97, 36);
+		contentPane.add(btnNewButton_1);
 	}
 }

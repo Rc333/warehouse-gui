@@ -51,11 +51,19 @@ public class ClientstateGUI extends JFrame {
 		JButton btnNewButton = new JButton("Show products");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
-				// return ProductList.getProducts();
-				Warehouse w = new Warehouse();
+//				dispose();
+//				// return ProductList.getProducts();
+				
+				String temp ="";
+				Iterator allProducts = Warehouse.instance().getProducts();
+		        while (allProducts.hasNext()) {
+		            Product product = (Product) (allProducts.next());
+		            temp+=(product.toString()+"\n");
+				
+		        }
 			  
-				 JOptionPane.showMessageDialog(null, Warehouse.instance().getProducts());
+		        JOptionPane.showMessageDialog(null, temp);
+			  
 				 
 			}}	);
 		btnNewButton.setBounds(10, 65, 150, 23);

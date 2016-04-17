@@ -54,7 +54,7 @@ public class Product implements Serializable {
 //    
     public void decQuantity(Integer value){
         quantity= quantity - value;
-        System.out.println("quantity remaining "+ quantity + "\n");
+       // System.out.println("quantity remaining "+ quantity + "\n");
     }
 
 }

@@ -1,6 +1,9 @@
 package src;
 
 import java.util.*;
+
+import javax.swing.JOptionPane;
+
 import java.io.*;
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
@@ -232,11 +235,11 @@ public class Warehouse implements Serializable {
                 //System.out.println("Product does not exist");
                 if (quantity > product.quantity) {
                     // send to wait list
-                    System.out.println("Less quantity, qunatity sent to wait list");
+                   // System.out.println("Less quantity, qunatity sent to wait list");
                     Waititem wtItem = new Waititem(client, product, quantity);
                     WaititemList wtItemList = WaititemList.instance();
                     if (wtItemList.insertWaititem(wtItem)) {
-                        System.out.println("Order added to wait List, Please wait till shipment arrives for processing");
+                        JOptionPane.showMessageDialog(null, "Order added to wait List, Please wait till shipment arrives for processing");
                     }
 
                 } else {
@@ -246,8 +249,9 @@ public class Warehouse implements Serializable {
                     InvoiceList invoiceList = InvoiceList.instance();
 
                     if (invoiceList.insertInvoices(tempInvoice)) {
-                        System.out.println(tempInvoice.getInvoiceString());
-                        product.decQuantity(quantity);
+                        //System.out.println(tempInvoice.getInvoiceString());
+                        JOptionPane.showMessageDialog(null,"PRODUCT SOLD: " + tempInvoice.getInvoiceString());
+                    	product.decQuantity(quantity);
                         
                         //adding to the balance of the client
                         
