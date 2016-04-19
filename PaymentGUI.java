@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 public class PaymentGUI extends JFrame {
 
@@ -55,6 +56,7 @@ public class PaymentGUI extends JFrame {
 		textField.setColumns(10);
 		
 		JButton btnNewButton = new JButton("Pay");
+		btnNewButton.setIcon(new ImageIcon(PaymentGUI.class.getResource("/iconimages/login.png")));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -62,8 +64,13 @@ public class PaymentGUI extends JFrame {
 				Integer price = Integer.parseInt(textField.getText());
 			        
 				Double balance = 0.0;
+				
+				
+				
+				
 				Client client = new Client();
 			       balance = client.getBalance();
+			       
 			       // balance = client.getBalance();
 			        balance = balance - price;
 			        
@@ -73,8 +80,22 @@ public class PaymentGUI extends JFrame {
 				
 			}
 		});
-		btnNewButton.setBounds(133, 148, 63, 23);
+		btnNewButton.setBounds(102, 148, 126, 23);
 		contentPane.add(btnNewButton);
+		
+		JButton btnCancel = new JButton("Cancel");
+		btnCancel.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ReceiveshipmentGUI rs = new ReceiveshipmentGUI();
+				rs.setVisible(true);
+				
+			
+			}
+		});
+		btnCancel.setIcon(new ImageIcon(PaymentGUI.class.getResource("/iconimages/cancel.png")));
+		btnCancel.setBounds(284, 147, 113, 25);
+		contentPane.add(btnCancel);
 	}
 
 }

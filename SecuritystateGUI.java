@@ -112,7 +112,7 @@ public class SecuritystateGUI extends JFrame {
 					dispose();
 					cs.setVisible(true);
 
-				} else if (iput.equals("MANAGER") && iput1.equals("MANAGER")) {
+				} else if ((iput.equals("MANAGER") && iput1.equals("MANAGER"))||(iput.equals("manager") && iput1.equals("manager"))) {
 					dispose();
 					ms.setVisible(true);
 				}

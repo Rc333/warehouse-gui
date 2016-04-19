@@ -106,7 +106,14 @@ public class AddclerkGUI extends JFrame {
 		btnAddClient.setBounds(187, 182, 137, 33);
 		contentPane.add(btnAddClient);
 		
-		JButton btnLogout = new JButton("Logout");
+		JButton btnLogout = new JButton("cancel");
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				dispose();
+				ClerkstateGUI cs = new ClerkstateGUI();
+				cs.setVisible(true);
+			}
+		});
 		btnLogout.setIcon(new ImageIcon(AddclerkGUI.class.getResource("/iconimages/cancel.png")));
 		btnLogout.setBounds(10, 182, 106, 33);
 		contentPane.add(btnLogout);
