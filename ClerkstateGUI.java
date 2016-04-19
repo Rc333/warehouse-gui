@@ -123,7 +123,7 @@ public class ClerkstateGUI extends JFrame {
 		btnNewButton_3 = new JButton("Get transactions");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+
 				Warehouse w = new Warehouse();
 				JOptionPane.showMessageDialog(null, Warehouse.instance().getTransactions());
 				

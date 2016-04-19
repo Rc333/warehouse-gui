@@ -116,6 +116,7 @@ public class AddproductGUI extends JFrame {
 			    		labelClerk.setBounds(10, 236, 46, 14);
 			    		contentPane.add(labelClerk);
 			        }
+		            dispose();
 			        JOptionPane.showMessageDialog(null, result);
 			        
 			        ClerkstateGUI csG = new ClerkstateGUI();

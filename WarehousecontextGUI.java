@@ -64,7 +64,9 @@ public class WarehousecontextGUI extends JFrame {
 				                //warehouse = Warehouse.instance();
 				            }
 				        } catch (Exception cnfe) {
-				            cnfe.printStackTrace();
+				        	dispose();
+							LoginGUI lg = new LoginGUI();
+			                lg.setVisible(true);
 				        }
 				    }
 				 
