@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.Iterator;
 import java.awt.event.ActionEvent;
 import javax.swing.ImageIcon;
 import java.awt.Font;
@@ -65,9 +66,16 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowClients = new JButton("Show clients");
 		btnShowClients.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			
-				 JOptionPane.showMessageDialog(null, Warehouse.instance().getClients());
-				
+				String temp = "";
+				Iterator allProducts = Warehouse.instance().getClients();
+				while (allProducts.hasNext()) {
+					Client product = (Client) (allProducts.next());
+					temp += (product.toString() + "\n");
+
+				}
+
+				JOptionPane.showMessageDialog(null, temp);
+	
 			}
 		});
 		btnShowClients.setBounds(10, 95, 144, 23);
@@ -76,10 +84,19 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowProducts = new JButton("Show products");
 		btnShowProducts.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				 JOptionPane.showMessageDialog(null, Warehouse.instance().getProducts());
-				
-				
+				// dispose();
+				// // return ProductList.getProducts();
+
+				String temp = "";
+				Iterator allProducts = Warehouse.instance().getProducts();
+				while (allProducts.hasNext()) {
+					Product product = (Product) (allProducts.next());
+					temp += (product.toString() + "\n");
+
+				}
+
+				JOptionPane.showMessageDialog(null, temp);
+
 			}
 		});
 		btnShowProducts.setBounds(10, 131, 144, 23);
@@ -101,11 +118,19 @@ public class ManagerstateGUI extends JFrame {
 		JButton btnShowWaitlist = new JButton("Show waitlist");
 		btnShowWaitlist.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
-				JOptionPane.showMessageDialog(null, Warehouse.instance().getWaitlist());
-				
-				
+
+				String temp = "";
+				Iterator allProducts = Warehouse.instance().getWaitlist();
+				while (allProducts.hasNext()) {
+					Waititem product = (Waititem) (allProducts.next());
+					temp += (product.toString() + "\n");
+
+				}
+
+				JOptionPane.showMessageDialog(null, temp);
+
 			}
+
 		});
 		btnShowWaitlist.setBounds(10, 203, 144, 23);
 		contentPane.add(btnShowWaitlist);

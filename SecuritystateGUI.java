@@ -34,6 +34,7 @@ public class SecuritystateGUI extends JFrame {
 	private JButton btnCancel;
 	private JLabel lblNewLabel_1;
 	private JLabel lblPassword;
+	private JLabel lblClerkclerkOrManagermanager;
 
 	/**
 	 * Launch the application.
@@ -123,10 +124,10 @@ public class SecuritystateGUI extends JFrame {
 
 					SecuritystateGUI sg = new SecuritystateGUI();
 
-					JLabel lblNewLabel = new JLabel("Invalid User Name Password");
+					JLabel lblNewLabel = new JLabel("enter clerk/clerk for clerk and manager/manager for manager");
 					lblNewLabel.setBounds(10, 217, 140, 14);
 					contentPane.add(lblNewLabel);
-					lblNewLabel.setText("Invalid user/pass");
+					lblNewLabel.setText("invalid parameter");
 //					sg.setVisible(true);
 				} // return null != null;
 
@@ -178,6 +179,10 @@ public class SecuritystateGUI extends JFrame {
 		lblPassword.setFont(new Font("Tahoma", Font.BOLD, 13));
 		lblPassword.setBounds(26, 112, 70, 16);
 		contentPane.add(lblPassword);
+		
+		lblClerkclerkOrManagermanager = new JLabel("clerk/clerk or manager/manager");
+		lblClerkclerkOrManagermanager.setBounds(226, 224, 194, 16);
+		contentPane.add(lblClerkclerkOrManagermanager);
 
 	}
 

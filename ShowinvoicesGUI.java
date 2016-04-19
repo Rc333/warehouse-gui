@@ -70,7 +70,10 @@ public class ShowinvoicesGUI extends JFrame {
 			            }
 			        }
 			        //return cat;
+			        dispose();
 			        JOptionPane.showMessageDialog(null, cat);
+			        ManagerstateGUI ms = new ManagerstateGUI();
+			        ms.setVisible(true);
 				
 				
 			}
